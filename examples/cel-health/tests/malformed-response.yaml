@@ -1,0 +1,16 @@
+name: Malformed JSON is rejected
+tool: cel-health.health
+params: {}
+creds:
+  base_url: https://api.example.com
+  api_key: example-not-a-real-secret
+http:
+  - request:
+      method: GET
+      url: https://api.example.com/health
+      headers:
+        X-API-Key: example-not-a-real-secret
+    response:
+      status: 200
+      body: not-json
+expect_error: decode_json

@@ -1,0 +1,21 @@
+provider_id: mcp-static
+version: "1.0.0"
+vendor: Example
+name: Static MCP example
+description: Illustrates a fixed tool definition for an existing MCP server.
+category: utility
+supported_locations: [saas]
+credential_schema:
+  mcp_endpoint:
+    type: url
+    required: true
+    description: Complete HTTP MCP endpoint.
+  api_key:
+    type: secret
+    required: true
+    description: Token accepted by the MCP service.
+auth_strategy:
+  headers:
+    Authorization: "Bearer {{creds.api_key}}"
+credential_test:
+  type: skip

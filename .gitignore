@@ -1,0 +1,10 @@
+/dist/
+/bin/
+*.tcpkg
+*.wasm
+.local/
+coverage.out
+__pycache__/
+*.pyc
+/tcpkg
+/tcpkg.exe

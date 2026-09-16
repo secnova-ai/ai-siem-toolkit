@@ -1,0 +1,18 @@
+provider_id: cel-search
+version: "1.0.0"
+vendor: Example
+name: Device inventory example
+description: Illustrative inventory API; adapt endpoints to your vendor documentation.
+category: utility
+supported_locations: [saas]
+credential_schema:
+  base_url:
+    type: url
+    required: true
+    description: API origin without a trailing slash.
+  api_key:
+    type: secret
+    required: true
+    description: API key with read-only inventory access.
+credential_test:
+  type: skip
