@@ -1,0 +1,18 @@
+name: Authentication rejection is explicit
+tool: cel-health.health
+params: {}
+creds:
+  base_url: https://api.example.com
+  api_key: example-not-a-real-secret
+http:
+  - request:
+      method: GET
+      url: https://api.example.com/health
+      headers:
+        X-API-Key: example-not-a-real-secret
+    response:
+      status: 401
+      body: '{"status":"ok"}'
+expect:
+  error: Health request failed
+  http_status: 401

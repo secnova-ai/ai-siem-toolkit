@@ -1,0 +1,24 @@
+name: Nested filters produce the correct request
+tool: cel-search.search
+params:
+  filters:
+    - field: hostname
+      value: web-01
+  limit: 10
+creds:
+  base_url: https://inventory.example.com
+  api_key: example-only
+http:
+  - request:
+      method: POST
+      url: https://inventory.example.com/devices/search
+      headers:
+        X-API-Key: example-only
+        Content-Type: application/json
+      body: '{"filters":[{"field":"hostname","value":"web-01"}],"limit":10}'
+    response:
+      status: 200
+      body: '{"devices":[{"id":"device-42"}]}'
+expect:
+  devices:
+    - id: device-42

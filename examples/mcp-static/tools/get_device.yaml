@@ -1,0 +1,17 @@
+tool_id: mcp-static.get_device
+name: Get device
+description: Read a single device by immutable ID from the remote MCP server. Does not modify the device. Replace this sample name and schema with the actual server contract.
+input_schema:
+  type: object
+  additionalProperties: false
+  required: [device_id]
+  properties:
+    device_id:
+      type: string
+      minLength: 1
+      description: Exact immutable ID returned by the server's inventory, not a hostname or IP address.
+risk_level: low
+blast_radius: none
+runtime_type: mcp
+runtime_config:
+  tool_name: get_device

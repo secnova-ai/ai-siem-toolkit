@@ -1,0 +1,22 @@
+provider_id: wasm-health
+version: "1.0.0"
+vendor: Example
+name: wasm-health
+description: Read service health through a documented HTTP API.
+category: utility
+supported_locations: [saas]
+credential_schema:
+  base_url:
+    type: url
+    required: true
+    description: Service origin, e.g. https://api.example.com, without a trailing slash.
+  api_key:
+    type: secret
+    required: true
+    description: API key with permission to read service health.
+credential_test:
+  type: http_probe
+  method: GET
+  url: "{{creds.base_url}}/health"
+  headers:
+    X-API-Key: "{{creds.api_key}}"

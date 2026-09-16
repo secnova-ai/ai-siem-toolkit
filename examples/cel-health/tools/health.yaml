@@ -1,0 +1,30 @@
+tool_id: cel-health.health
+name: Read service health
+description: Read the service health without changing configuration. Returns the service status.
+input_schema:
+  type: object
+  properties: {}
+  additionalProperties: false
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+      description: Service-reported health status, for example ok.
+    error:
+      type: string
+      description: Sanitized explanation when the HTTP request failed.
+    http_status:
+      type: integer
+      description: Non-success HTTP status reported by the service.
+  oneOf:
+    - required: [status]
+    - required: [error, http_status]
+risk_level: low
+blast_radius: none
+runtime_type: cel
+runtime_config:
+  program: >-
+    [get_h(creds.base_url + "/health", {"X-API-Key": creds.api_key})]
+      .map(r, r.ok ? {"status": r.body.decode_json().status} :
+        {"error": "Health request failed", "http_status": r.status})[0]

@@ -1,0 +1,19 @@
+tool_id: wasm-health.health
+name: Read service health
+description: Read the service health without changing configuration. Returns the service status.
+input_schema:
+  type: object
+  properties: {}
+  additionalProperties: false
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+      description: Service-reported health status, for example ok.
+  required: [status]
+risk_level: low
+blast_radius: none
+runtime_type: wasm
+runtime_config:
+  artifact_ref: health.wasm

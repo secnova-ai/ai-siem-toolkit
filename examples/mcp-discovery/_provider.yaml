@@ -1,0 +1,22 @@
+provider_id: mcp-discovery
+version: "1.0.0"
+vendor: Example
+name: mcp-discovery
+description: Discover and call tools from an existing MCP service.
+category: utility
+supported_locations: [saas]
+mcp_discovery: true
+credential_schema:
+  mcp_endpoint:
+    type: url
+    required: true
+    description: Complete MCP HTTP endpoint, e.g. https://mcp.example.com/mcp.
+  api_key:
+    type: secret
+    required: true
+    description: Bearer token accepted by the MCP service.
+auth_strategy:
+  headers:
+    Authorization: "Bearer {{creds.api_key}}"
+credential_test:
+  type: skip

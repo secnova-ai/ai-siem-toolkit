@@ -1,0 +1,8 @@
+name: Unknown input is rejected
+tool: cel-health.health
+params:
+  unexpected: true
+creds:
+  base_url: https://api.example.com
+  api_key: example-not-a-real-secret
+expect_error: unexpected
