@@ -11,3 +11,7 @@ for name in ("http_wasm.go", "http_stub.go"):
     src = ROOT / "sdk/go" / name
     (ROOT / "templates/wasm-go/sdk" / (name + ".txt")).write_bytes(src.read_bytes())
 print("Updated skill references and embedded SDK source.")
+
+for directory in [ROOT / "templates" / n for n in ("cel", "wasm-go", "mcp")] + [ROOT / "skills/create-custom-tool"] + [p for p in (ROOT / "examples").iterdir() if p.is_dir() and (p / "_provider.yaml").exists()]:
+    (directory / "LICENSE").write_bytes((ROOT / "LICENSE").read_bytes())
+print("Updated license copies.")

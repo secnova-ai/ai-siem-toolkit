@@ -9,6 +9,11 @@ REFERENCES = ("design", "cel", "wasm", "mcp", "credentials", "reference", "testi
 
 def main():
     failures = []
+    license_text = (ROOT / "LICENSE").read_bytes()
+    for directory in [ROOT / "templates" / n for n in ("cel", "wasm-go", "mcp")] + [ROOT / "skills/create-custom-tool"] + [p for p in (ROOT / "examples").iterdir() if p.is_dir() and (p / "_provider.yaml").exists()]:
+        license_file = directory / "LICENSE"
+        if not license_file.exists() or license_file.read_bytes() != license_text:
+            failures.append(f"license copy missing or out of sync: {directory.relative_to(ROOT)}")
     for file in ROOT.rglob("*.md"):
         if ".git" in file.parts or "dist" in file.parts:
             continue

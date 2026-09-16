@@ -31,6 +31,7 @@ for target in ("linux", "darwin", "windows"):
                 with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
                     z.write(binary, filename)
                     z.write(root / "README.md", "README.md")
+                    z.write(root / "LICENSE", "LICENSE")
             else:
                 with tarfile.open(archive, "w:gz") as z:
                     info = z.gettarinfo(str(binary), arcname=filename)
@@ -38,6 +39,7 @@ for target in ("linux", "darwin", "windows"):
                     with binary.open("rb") as source:
                         z.addfile(info, source)
                     z.add(root / "README.md", arcname="README.md")
+                    z.add(root / "LICENSE", arcname="LICENSE")
             checksums.append(f"{hashlib.sha256(archive.read_bytes()).hexdigest()}  {archive.name}")
             print(archive.name, flush=True)
 (out / "SHA256SUMS").write_text("\n".join(checksums) + "\n", encoding="utf-8")

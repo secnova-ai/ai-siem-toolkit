@@ -57,3 +57,9 @@ python scripts/check_docs.py
 ```
 
 Tests compile and execute the Go WASM starter under the same 16 MiB memory limit as Tool Center. `go test -short ./...` skips that compilation test. No real external API calls are made by default.
+
+## License
+
+The CLI, SDK, templates, examples, documentation and AI skill in this repository are licensed under [Apache-2.0](LICENSE). Third-party dependencies retain their own licenses.
+
+Using `tcpkg` to create or package your own tools does not require you to open-source them. If you redistribute copied or modified toolkit code, templates or SDK code, retain the applicable license and notices and identify modified files as required by Apache-2.0. Generated source projects include a LICENSE copy for the supplied template/SDK code; it does not automatically license your independently authored code. When distributing a `.tcpkg` containing such code, provide the license alongside the package.
