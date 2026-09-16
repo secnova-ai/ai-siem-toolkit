@@ -1,5 +1,7 @@
 # Quick start
 
+This page runs the starter quickly. To understand each authoring decision, start with the [complete tutorial](tutorial.md).
+
 Install `tcpkg` as described in the repository README. Create a CEL project:
 
 ```sh

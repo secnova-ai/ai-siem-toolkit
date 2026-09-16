@@ -1,5 +1,7 @@
 # AI-SIEM Toolkit
 
+首次编写请跟随[逐步教程](docs/zh-CN/tutorial.md)：从接口请求开始，逐份编写 YAML，理解嵌套参数和认证，再测试、打包完整工具。
+
 [English](README.md) · [开发指南](docs/zh-CN/README.md) · [CLI 命令](docs/zh-CN/cli.md)
 
 用于 SecNova AI-SIEM 自定义工具开发的工具集：初始化项目、校验定义、测试逻辑、编译 Go WASM、生成 `.tcpkg` 工具包，并指导 AI 完成这些工作。

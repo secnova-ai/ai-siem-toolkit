@@ -4,7 +4,7 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-REFERENCES = ("design", "cel", "wasm", "mcp", "credentials", "reference", "testing", "cli", "compatibility")
+REFERENCES = ("design", "cel", "wasm", "mcp", "credentials", "reference", "testing", "cli", "compatibility", "structure")
 
 
 def main():

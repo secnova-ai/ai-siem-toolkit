@@ -20,6 +20,8 @@ Move the executable into a directory on your PATH. CEL and MCP users need no Go 
 
 ## First tool
 
+Follow the [step-by-step tutorial](docs/en/tutorial.md) to write each YAML file, understand nested parameters and authentication, and test a complete API tool.
+
 ```sh
 tcpkg init my-api --runtime cel
 tcpkg validate my-api

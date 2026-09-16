@@ -1,5 +1,7 @@
 # Definition reference
 
+Read the tutorial in the human documentation when authoring your first tool. This page is a lookup; [structure](structure.md) contains complete matching YAML files.
+
 YAML must be a single document. Aliases, duplicate keys and unknown typed fields are rejected. This prevents misspelled options from silently taking no effect. Tool input/output schemas use self-contained JSON Schema 2020-12; external references are disabled.
 
 ## Provider: `_provider.yaml`

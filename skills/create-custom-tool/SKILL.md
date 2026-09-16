@@ -23,7 +23,9 @@ Do not force an unsupported requirement into CEL. CEL is not JavaScript/Python a
 
 ## Author against the real contract
 
-Read [credentials](references/credentials.md) and the relevant sections of the [field reference](references/reference.md). Initialize with `tcpkg init DIR --runtime cel|wasm|mcp`; Go WASM uses `--language go`. Read [CLI](references/cli.md) for exact command syntax. Modify an existing project without overwriting unrelated user files.
+Read the [structure contract and complete matching YAML files](references/structure.md) before generating definitions, then [credentials](references/credentials.md) and the relevant [field reference](references/reference.md). Initialize with `tcpkg init DIR --runtime cel|wasm|mcp`; Go WASM uses `--language go`. Read [CLI](references/cli.md) for exact command syntax. Modify an existing project without overwriting unrelated user files.
+
+Keep credential field maps (`required: true`) separate from JSON Schema (`properties`, `required: [names]`, `items`). Do not interchange Provider header templates with CEL expressions. Use only the selected runtime's configuration keys; dynamic MCP has no static tool definitions. Validate the complete assembled files after merging fragments. A syntactically valid YAML file is not proof that its field structure or runtime configuration is valid.
 
 Treat tool execution as stateless across invocations. A login tool does not authenticate subsequent tools, and executing code does not write values back into the credential store. Platform-managed OAuth is a separate supported credential workflow. For other authentication use values supplied in `creds`; CEL `_h` helpers and WASM construct headers explicitly. Never embed real credentials in definitions, source or fixtures.
 
